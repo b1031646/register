@@ -2,6 +2,19 @@ package uk.ac.shu.webarch.register
 
 class Instructor {
 
-    static constraints = {
-    }
+
+
+  String instructorName
+  String instructorID
+
+
+
+  Set sessions
+
+
+
+  static hasMany = [sessions: Session]
+
+ 
+
 }

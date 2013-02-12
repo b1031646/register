@@ -2,6 +2,19 @@ package uk.ac.shu.webarch.register
 
 class RegisterEntry {
 
-    static constraints = {
-    }
+  
+
+  Student student
+  RegistrationSheet registrationsheet
+  Long timestamp
+
+ 
+
+  static mapping = {
+    student column: 'student_fk'
+    registrationsheet column: 'registrationsheet_fk'
+
+
+
+  }
 }

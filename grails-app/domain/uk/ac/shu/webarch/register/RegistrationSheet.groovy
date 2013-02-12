@@ -2,6 +2,26 @@ package uk.ac.shu.webarch.register
 
 class RegistrationSheet {
 
-    static constraints = {
-    }
+
+
+  Session session
+  Date date
+  String notes
+
+
+
+  Set registerEntries
+
+
+
+  static hasMany = [registerEntries: RegisterEntry]
+
+
+
+  static mapping = {
+    notes column: 'session_notes', type:'text'
+
+
+
+  }
 }
