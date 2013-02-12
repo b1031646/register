@@ -5,11 +5,20 @@ class Instructor {
 
 
   String instructorName
-  String instructorID
+  String instructorId
 
 
 
   Set sessions
+
+
+
+  static constraints = {
+    instructorName(nullable:false, blank:false,maxSize:256);
+    instructorId(nullable:false, blank:false,maxSize:20);
+
+
+  }
 
 
 

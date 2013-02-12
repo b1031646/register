@@ -5,7 +5,7 @@ class Student {
 
 
   String studentName
-  String studentID
+  String studentId
   String studentNotes
 
 
@@ -17,6 +17,12 @@ class Student {
 
   static hasMany = [enrollments: Enrollment, registerEnteries: RegisterEntry]
 
+
+
+ static constraints = {
+    studentName(nullable:false, blank:false,maxSize:256);
+    studentId(nullable:false, blank:false,maxSize:256);
+  }
 
 
     static mapping = {

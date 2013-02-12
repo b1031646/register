@@ -8,6 +8,9 @@ class Enrollment {
   Student student
 
 
+  static constraints = {
+  }
+
 
   static mapping = {
     student column: 'student_fk'

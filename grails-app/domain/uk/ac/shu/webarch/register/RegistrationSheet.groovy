@@ -5,7 +5,7 @@ class RegistrationSheet {
 
 
   Session session
-  Date date
+  Date sessionDate
   String notes
 
 
@@ -16,6 +16,13 @@ class RegistrationSheet {
 
   static hasMany = [registerEntries: RegisterEntry]
 
+
+
+  static constraints = {
+    session(nullable:false, blank:false);
+    sessionDate(nullable:false, blank:false);
+    notes(nullable:true, blank:true);
+  }
 
 
   static mapping = {

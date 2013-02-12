@@ -18,6 +18,10 @@ class Session {
 
 
 
+  static constraints = {
+  }
+
+
   static mapping = {
     instructor column:'instructor_fk'
     course column:'course_fk'

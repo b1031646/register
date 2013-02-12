@@ -8,6 +8,11 @@ class RegisterEntry {
   RegistrationSheet registrationsheet
   Long timestamp
 
+
+
+  static constraints = {
+    timestamp(nullable:false, blank:false);
+  }
  
 
   static mapping = {

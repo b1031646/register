@@ -18,6 +18,13 @@ class Course {
 
 
 
+  static constraints = {
+    courseCode maxSize: 20
+
+
+  }
+
+
   static mapping = {
     description column: 'course_desc', type:'text'
 
