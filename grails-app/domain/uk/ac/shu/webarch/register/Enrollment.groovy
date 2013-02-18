@@ -4,7 +4,7 @@ class Enrollment {
 
 
 
-  Course course
+  Session session
   Student student
 
 
@@ -14,7 +14,7 @@ class Enrollment {
 
   static mapping = {
     student column: 'student_fk'
-    course column: 'course_fk'
+    session column: 'session_fk'
 
 
 

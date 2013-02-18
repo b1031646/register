@@ -2,24 +2,22 @@ package uk.ac.shu.webarch.register
 
 class Course {
   
-
+  String courseId
   String courseName
-  String courseCode
   String Description
 
 
 
-  Set sessions
-  Set enrollments
+  Set modules
 
 
 
-  static hasMany = [sessions: Session, enrollments: Enrollment]
-
-
+  static hasMany = [modules: Module]
+  
+  static mappedBy = [modules: "course"]
 
   static constraints = {
-    courseCode maxSize: 20
+    courseId maxSize: 20
 
 
   }

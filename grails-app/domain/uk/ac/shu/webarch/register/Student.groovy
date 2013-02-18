@@ -11,11 +11,12 @@ class Student {
 
 
   Set enrollments
-  Set registerEnteries
+  Set registerEntries
 
 
 
-  static hasMany = [enrollments: Enrollment, registerEnteries: RegisterEntry]
+  static hasMany = [enrollments: Enrollment, registerEntries: RegisterEntry]
+  static mappedBy = [enrollments: "student", registerEntries: "student"]
 
 
 

@@ -3,19 +3,21 @@ package uk.ac.shu.webarch.register
 class Session {
 
 
-
+  String sessionId
   String sessionName
   Instructor instructor
-  Course course
+  Module module
 
 
 
   Set registrationSheets
+  Set enrollments
 
 
 
-  static hasMany = [registrationSheets: RegistrationSheet]
+  static hasMany = [registrationSheets: RegistrationSheet, enrollments: Enrollment]
 
+  static mappedBy = [registrationSheets: "session", enrollments: "session"]
 
 
   static constraints = {
@@ -24,7 +26,7 @@ class Session {
 
   static mapping = {
     instructor column:'instructor_fk'
-    course column:'course_fk'
+    module column:'module_fk'
 
 
 

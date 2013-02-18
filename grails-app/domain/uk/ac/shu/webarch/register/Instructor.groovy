@@ -13,6 +13,12 @@ class Instructor {
 
 
 
+  static hasMany = [sessions: Session]
+
+
+
+  static mappedBy = [sessions: "instructor"]
+
   static constraints = {
     instructorName(nullable:false, blank:false,maxSize:256);
     instructorId(nullable:false, blank:false,maxSize:20);
@@ -20,9 +26,6 @@ class Instructor {
 
   }
 
-
-
-  static hasMany = [sessions: Session]
 
  
 
