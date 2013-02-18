@@ -2,6 +2,13 @@
 // config files can be ConfigSlurper scripts, Java properties files, or classes
 // in the classpath in ConfigSlurper format
 
+
+//  SSH & HTTP Keys
+//  url = https://github.com/b1031646/register.git
+//  url = git@github.com:b1031646/register.git
+
+
+
 // grails.config.locations = [ "classpath:${appName}-config.properties",
 //                             "classpath:${appName}-config.groovy",
 //                             "file:${userHome}/.grails/${appName}-config.properties",
