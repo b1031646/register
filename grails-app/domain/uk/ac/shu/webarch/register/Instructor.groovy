@@ -19,11 +19,10 @@ class Instructor {
 
   static mappedBy = [sessions: "instructor"]
 
+
   static constraints = {
-    instructorName(nullable:false, blank:false,maxSize:256);
+    instructorName(nullable:false, blank:false,maxSize:50);
     instructorId(nullable:false, blank:false,maxSize:20);
-
-
   }
 
 

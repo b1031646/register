@@ -11,6 +11,8 @@ class RegisterEntry {
 
 
   static constraints = {
+    student(nullable:false, blank:false);
+    registrationsheet(nullable:false, blank:false);
     timestamp(nullable:false, blank:false);
   }
  
@@ -18,8 +20,5 @@ class RegisterEntry {
   static mapping = {
     student column: 'student_fk'
     registrationsheet column: 'registrationsheet_fk'
-
-
-
   }
 }

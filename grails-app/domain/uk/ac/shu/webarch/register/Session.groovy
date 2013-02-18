@@ -21,6 +21,10 @@ class Session {
 
 
   static constraints = {
+    sessionId(nullable:false, blank:false, maxSize:20);
+    sessionName(nullable:false, blank:false, maxSize:80);
+    instructor(nullable:false, blank:false);
+    module(nullable:false, blank:false);
   }
 
 

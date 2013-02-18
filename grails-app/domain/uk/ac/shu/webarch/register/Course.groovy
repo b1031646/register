@@ -4,7 +4,7 @@ class Course {
   
   String courseId
   String courseName
-  String Description
+  String courseDescription
 
 
 
@@ -16,17 +16,17 @@ class Course {
   
   static mappedBy = [modules: "course"]
 
+
+
   static constraints = {
-    courseId maxSize: 20
-
-
+    courseId(nullable:false, blank:false, maxSize:20);
+    courseName(nullable:false, blank:false, maxSize:80);
+    courseDescription(nullable:true, blank:true);
   }
 
 
   static mapping = {
-    description column: 'course_desc', type:'text'
-
-
+    courseDescription column: 'course_description', type:'text'
 
   }
 }

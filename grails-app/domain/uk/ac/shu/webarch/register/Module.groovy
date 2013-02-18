@@ -15,11 +15,17 @@ class Module {
   static mappedBy = [sessions: "module"]
 
     static constraints = {
+
+    moduleId(nullable:false, blank:false, maxSize:20);
+    moduleName(nullable:false, blank:false, maxSize:80);
+    moduleDescription(nullable:true, blank:true);
+    course(nullable:false, blank:false);
     }
 
 
 static mapping = {
     course column:'course_fk'
+    moduleDescription column: 'module_description', type:'text'
   }
 
 
