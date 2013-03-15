@@ -1,12 +1,16 @@
 package uk.ac.shu.webarch.register
 
+
+
 class RegisterEntry {
 
   
 
   Student student
   RegistrationSheet registrationsheet
-  Long timestamp
+  Date timestamp
+      
+
 
 
 
@@ -20,5 +24,6 @@ class RegisterEntry {
   static mapping = {
     student column: 'student_fk'
     registrationsheet column: 'registrationsheet_fk'
+    
   }
 }

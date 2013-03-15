@@ -65,6 +65,10 @@ class BootStrap {
 	def database_thursday_regsheet = lookupOrCreateRegistrationSheet(database_thursday,'2013/03/01','N/A')
 	def webdesign_friday_regsheet = lookupOrCreateRegistrationSheet(webdesign_friday,'2013/04/01', 'N/A')
 
+	// Add test RegistrationSheets //
+	
+
+
 
 }
 
@@ -117,6 +121,13 @@ class BootStrap {
 
 	def lookupOrCreateRegistrationSheet (session,date,notes){
 	def result = RegistrationSheet.findAllBySessionAndSessionDate(session, date) ?: new RegistrationSheet (session: session, sessionDate: date, notes: notes).save();
+	return result
+	}
+
+		// RegisterEntry //
+
+	def lookupOrCreateRegisterEntry (student,registrationsheet,timestamp){
+	def result = RegisterEntry.findByStudentAndRegistrationsheet(student, registrationsheet) ?: new RegisterEntry (student: student, registrationsheet: registrationsheet, timestamp: timestamp).save();
 	return result
 	}
 
