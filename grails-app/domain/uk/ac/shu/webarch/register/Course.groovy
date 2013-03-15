@@ -7,7 +7,7 @@ class Course {
   String courseDescription
 
 	
-	// Here i implement a "toString()" method on courseName so that it returns the course name instead of the id for display purposes // 
+	// Here i implement a "toString()" method to return a more sensible value instead of the id for display purposes // ss
 
 	String toString() {
         return courseName

@@ -43,6 +43,20 @@ class BootStrap {
 	def webdesign_friday = lookupOrCreateSession('4','Web Design-Friday', steve_instructor, webdesign_module)
 	
 
+	// Add test enrollment //
+
+	// Mike Enrollment //
+	def mike_programming_monday = lookupOrCreateEnrollment(programming_monday,mike_student)
+	def mike_webdesign_friday = lookupOrCreateEnrollment(webdesign_friday,mike_student)
+
+	// Sarah Enrollment //
+	def sarah_database_thursday = lookupOrCreateEnrollment(database_thursday,sarah_student)
+	def sarah_programming_monday = lookupOrCreateEnrollment(programming_monday,sarah_student)
+	def sarah_webdesign_friday = lookupOrCreateEnrollment(webdesign_friday,sarah_student)
+
+	// John Enrollment //
+	def john_webdesign_friday = lookupOrCreateEnrollment(webdesign_friday,john_student)
+
 }
 
     def destroy = {
@@ -82,4 +96,12 @@ class BootStrap {
 	def result = Session.findBySessionId(id) ?: new Session (sessionId: id, sessionName: name, instructor: instructor, module: module).save();
 	return result
 	}
+
+		// Enrollment //
+
+	def lookupOrCreateEnrollment (session,student){
+	def result = Enrollment.findAllBySessionAndStudent(session, student) ?: new Enrollment (session: session, student: student).save();
+	return result
+	}
+
 }
