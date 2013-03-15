@@ -8,6 +8,11 @@ class RegistrationSheet {
   Date sessionDate
   String notes
 
+	// Here i implement a "toString()" method to return a more sensible value instead of the id for display purposes // 
+
+	String toString() {
+        return (sessionDate.format("dd-MM-yyyy")) 
+    }
 
 
   Set registerEntries

@@ -57,6 +57,15 @@ class BootStrap {
 	// John Enrollment //
 	def john_webdesign_friday = lookupOrCreateEnrollment(webdesign_friday,john_student)
 
+
+	// Add test RegistrationSheets //
+	
+	def programming_monday_regsheet = lookupOrCreateRegistrationSheet(programming_monday,'2013/01/01','N/A')
+	def programming_tuesday_regsheet = lookupOrCreateRegistrationSheet(programming_tuesday,'2013/02/01','N/A')
+	def database_thursday_regsheet = lookupOrCreateRegistrationSheet(database_thursday,'2013/03/01','N/A')
+	def webdesign_friday_regsheet = lookupOrCreateRegistrationSheet(webdesign_friday,'2013/04/01', 'N/A')
+
+
 }
 
     def destroy = {
@@ -101,6 +110,13 @@ class BootStrap {
 
 	def lookupOrCreateEnrollment (session,student){
 	def result = Enrollment.findAllBySessionAndStudent(session, student) ?: new Enrollment (session: session, student: student).save();
+	return result
+	}
+
+		// RegistrationSheet //
+
+	def lookupOrCreateRegistrationSheet (session,date,notes){
+	def result = RegistrationSheet.findAllBySessionAndSessionDate(session, date) ?: new RegistrationSheet (session: session, sessionDate: date, notes: notes).save();
 	return result
 	}
 
