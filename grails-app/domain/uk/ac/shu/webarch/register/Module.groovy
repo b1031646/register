@@ -7,6 +7,11 @@ class Module {
   String moduleDescription
   Course course
 
+	// Here i implement a "toString()" method on courseName so that it returns the course name instead of the id for display purposes // 
+
+	String toString() {
+        return moduleName
+    }
 
   Set sessions
 
