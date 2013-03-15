@@ -34,7 +34,13 @@ class BootStrap {
 	def database_module = lookupOrCreateModule('2','Database Systems','Oracle SQL', computing_course)
 	def webdesign_module = lookupOrCreateModule('3','Web Design','HTML & CSS', computing_course)
 
-
+	
+	// Add test sessions //
+	
+	def programming_monday = lookupOrCreateSession('1','Programming-Monday',richard_instructor, programming_module)
+	def programming_tuesday = lookupOrCreateSession('2','Programming-Tuesday',richard_instructor, programming_module)
+	def database_thursday = lookupOrCreateSession('3','Database-Thursday',james_instructor, database_module)
+	def webdesign_friday = lookupOrCreateSession('4','Web Design-Friday', steve_instructor, webdesign_module)
 	
 
 }
@@ -70,4 +76,10 @@ class BootStrap {
 	return result
 	}
 
+		// Session //
+
+	def lookupOrCreateSession (id,name,instructor,module){
+	def result = Session.findBySessionId(id) ?: new Session (sessionId: id, sessionName: name, instructor: instructor, module: module).save();
+	return result
+	}
 }
