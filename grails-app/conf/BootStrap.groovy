@@ -65,7 +65,24 @@ class BootStrap {
 	def database_thursday_regsheet = lookupOrCreateRegistrationSheet(database_thursday,'2013/03/01','N/A')
 	def webdesign_friday_regsheet = lookupOrCreateRegistrationSheet(webdesign_friday,'2013/04/01', 'N/A')
 
-	// Add test RegistrationSheets //
+	// Add test RegisterEnteries//
+	
+	// Programming Monday RegSheet //
+	def programming_monday_regsheet_entry1 = lookupOrCreateRegisterEntry(mike_student,programming_monday_regsheet)
+	def programming_monday_regsheet_entry2 = lookupOrCreateRegisterEntry(sarah_student,programming_monday_regsheet)
+
+	// Programming Tuesday RegSheet //
+	def programming_tuesday_regsheet_entry1 = lookupOrCreateRegisterEntry(mike_student,programming_tuesday_regsheet)
+	def programming_tuesday_regsheet_entry2 = lookupOrCreateRegisterEntry(john_student,programming_tuesday_regsheet)
+
+	// Database Thursday RegSheet //
+	def database_thursday_regsheet_entry1 = lookupOrCreateRegisterEntry(sarah_student,database_thursday_regsheet)
+	def database_thursday_regsheet_entry2 = lookupOrCreateRegisterEntry(john_student,database_thursday_regsheet)
+	def database_thursday_regsheet_entry3 = lookupOrCreateRegisterEntry(mike_student,database_thursday_regsheet)
+
+	// WebDesign Friday RegSheet //
+	def webdesign_friday_regsheet_entry1 = lookupOrCreateRegisterEntry(sarah_student,webdesign_friday_regsheet)
+	def webdesign_friday_regsheet_entry2 = lookupOrCreateRegisterEntry(john_student,webdesign_friday_regsheet)
 	
 
 
@@ -124,11 +141,12 @@ class BootStrap {
 	return result
 	}
 
-		// RegisterEntry //
+		// Enrollment //
 
-	def lookupOrCreateRegisterEntry (student,registrationsheet,timestamp){
-	def result = RegisterEntry.findByStudentAndRegistrationsheet(student, registrationsheet) ?: new RegisterEntry (student: student, registrationsheet: registrationsheet, timestamp: timestamp).save();
+	def lookupOrCreateRegisterEntry (student,reg){
+	def result = RegisterEntry.findAllByStudentAndRegistrationsheet(student,reg) ?: new RegisterEntry (student: student, registrationsheet: reg).save();
 	return result
 	}
+
 
 }
