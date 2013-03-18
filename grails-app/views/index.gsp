@@ -13,7 +13,12 @@
 	<g:link controller="Module">Manage Modules</g:link> ||
 	<g:link controller="Session">Manage Sessions</g:link> ||
 	<g:link controller="Instructor">Manage Instructors</g:link> ||
-	<g:link controller="Student">Manage Students</g:link> ||</h3></p>
+	<g:link controller="Student">Manage Students</g:link> ||
+	<g:link controller="RegistrationSheet">Manage Registration Sheets</g:link> ||
+	<g:link controller="RegisterEntry">Manage Register Entry</g:link> ||
+	<g:link controller="Enrollment">Manage Enrollment</g:link> ||
+
+</h3></p>
 	</center>
 	</body>
 </html>
