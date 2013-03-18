@@ -10,9 +10,7 @@ class Enrollment {
 
 	// Here i implement a "toString()" method to return a more sensible value instead of the id for display purposes //  
 
-	String toString() {
-        return "$session || $student"
-    }
+
 	
        
     

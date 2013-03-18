@@ -64,7 +64,8 @@
 					<span id="enrollments-label" class="property-label"><g:message code="session.enrollments.label" default="Enrollments" /></span>
 					
 						<g:each in="${sessionInstance.enrollments}" var="e">
-						<span class="property-value" aria-labelledby="enrollments-label"><g:link controller="enrollment" action="show" id="${e.id}">${e?.encodeAsHTML()}</g:link></span>
+						<span class="property-value" aria-labelledby="enrollments-label">
+<g:link controller="enrollment" action="show" id="${e.id}">${e?.student}</g:link></span>
 						</g:each>
 					
 				</li>
