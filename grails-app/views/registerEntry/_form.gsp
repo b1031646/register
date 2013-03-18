@@ -23,6 +23,6 @@
 		<g:message code="registerEntry.timestamp.label" default="Timestamp" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:datePicker name="timestamp" precision="day"  value="${registerEntryInstance?.timestamp}"  />
+	
 </div>
 

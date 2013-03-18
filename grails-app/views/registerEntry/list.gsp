@@ -40,7 +40,7 @@
 					
 						<td>${fieldValue(bean: registerEntryInstance, field: "registrationsheet")}</td>
 					
-						<td><g:formatDate date="${registerEntryInstance.timestamp}" type="datetime" style="MEDIUM" /></td>
+						<td>${fieldValue(bean: registerEntryInstance, field: "timestamp")}</td>
 					
 					</tr>
 				</g:each>

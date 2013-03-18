@@ -45,7 +45,7 @@
 				<li class="fieldcontain">
 					<span id="timestamp-label" class="property-label"><g:message code="registerEntry.timestamp.label" default="Timestamp" /></span>
 					
-						<span class="property-value" aria-labelledby="timestamp-label"><g:formatDate date="${registerEntryInstance?.timestamp}" /></span>
+						<span class="property-value" aria-labelledby="timestamp-label"><g:fieldValue bean="${registerEntryInstance}" field="timestamp"/></span>
 					
 				</li>
 				</g:if>
