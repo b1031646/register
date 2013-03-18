@@ -76,7 +76,7 @@
 					<span id="registrationSheets-label" class="property-label"><g:message code="session.registrationSheets.label" default="Registration Sheets" /></span>
 					
 						<g:each in="${sessionInstance.registrationSheets}" var="r">
-						<span class="property-value" aria-labelledby="registrationSheets-label"><g:link controller="registrationSheet" action="show" id="${r.id}">${r?.encodeAsHTML()}</g:link></span>
+						<span class="property-value" aria-labelledby="registrationSheets-label"><g:link controller="registrationSheet" action="show" id="${r.id}"><g:formatDate date= "${r?.sessionDate}"type="date" style="LONG" /> </g:link></span>
 						</g:each>
 					
 				</li>
