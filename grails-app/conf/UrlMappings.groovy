@@ -7,7 +7,12 @@ class UrlMappings {
 			}
 		}
 
-		"/"(view:"/index")
+		// Mapping for homepage //
+
+		"/"(controller:'instructor', action:"authenticate")
+
+
+
 		"500"(view:'/error')
 	}
 }

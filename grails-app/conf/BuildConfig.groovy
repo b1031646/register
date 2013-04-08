@@ -54,6 +54,14 @@ grails.project.dependency.resolution = {
 
         compile ':cache:1.0.1'
 
+	 compile ':cache-headers:1.0.4'
+
+	compile ":jcaptcha:1.2.1"
+
+	
+
+	compile ":remote-constraints:0.4.3"
+
 
     }
 }

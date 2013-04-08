@@ -41,6 +41,15 @@
 				</li>
 				</g:if>
 			
+				<g:if test="${instructorInstance?.password}">
+				<li class="fieldcontain">
+					<span id="password-label" class="property-label"><g:message code="instructor.password.label" default="Password" /></span>
+					
+						<span class="property-value" aria-labelledby="password-label"><g:fieldValue bean="${instructorInstance}" field="password"/></span>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${instructorInstance?.sessions}">
 				<li class="fieldcontain">
 					<span id="sessions-label" class="property-label"><g:message code="instructor.sessions.label" default="Sessions" /></span>

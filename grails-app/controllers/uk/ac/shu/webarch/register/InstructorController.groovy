@@ -4,6 +4,21 @@ import org.springframework.dao.DataIntegrityViolationException
 
 class InstructorController {
 
+def beforeInterceptor = [action:this.&auth, 
+                           except:["login", "authenticate", "logout"]]
+
+  def auth() {
+    if( !(session?.instructor?.role == "Admin") ){
+      flash.message = "You must be an administrator to perform that task."
+      redirect(action:"login")
+      return false
+    }
+  }
+
+
+
+
+
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
     def index() {
@@ -99,4 +114,87 @@ class InstructorController {
             redirect(action: "show", id: id)
         }
     }
+
+
+
+		
+// Login //
+
+	def login(LoginCommand cmd) {
+	if(request.method == 'POST') {
+	if(!cmd.hasErrors()) {
+	session.instructor = cmd.getInstructor()
+	redirect(controller:'instructor', action:'authenticate')
+	} else {
+	render view:'/instructor/login', model:[loginCmd:cmd]
+	}
+	} else {
+	render view:'/instructor/login'
+	}
+	}
+
+
+
+	// Part of the login script that checks if both username and password exist and then retrieves the user //
+
+	class LoginCommand {
+	String instructorId 
+	String password
+	private u
+	Instructor getInstructor() {
+	if(!u && instructorId ) {
+	u = Instructor.findByInstructorId (instructorId)
+	}
+	return u
+
+	}
+
+	static constraints = {
+	instructorId  blank:false, validator:{ val, obj ->
+	if(!obj.instructor)
+	return "instructor.not.found"
+	}
+	password blank:false, validator:{ val, obj ->
+	if(obj.instructor && obj.instructor.password != val)
+	return "instructor.password.invalid"
+	}
+	}
+	}
+
+
+	// Logout //
+
+	def logout = {
+	session.invalidate()
+	redirect(controller:'instructor', action:'login')
+	}
+
+
+
+def authenticate(){
+
+if (session.instructor) {
+redirect(controller:'home', action:'index')
+
+}else {
+
+redirect(controller:'instructor', action:'login')
+
+}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

@@ -4,14 +4,14 @@ class BootStrap {
 
     def init = { servletContext ->
 	
-	println('BootStrap::init');
+	
 
 
 	// Add test instructors //
 
-	def richard_instructor = lookupOrCreateInstructor('1', 'Richard Pitts')
-	def james_instructor = lookupOrCreateInstructor('2', 'James Duffy')
-	def steve_instructor = lookupOrCreateInstructor('3', 'Steve Holt')
+	def richard_instructor = lookupOrCreateInstructor('A1111', 'Richard Pitts', 'richard','Admin')
+	def james_instructor = lookupOrCreateInstructor('A2222', 'James Duffy', 'james','Instructor')
+	def steve_instructor = lookupOrCreateInstructor('A3333', 'Steve Holt', 'steve','Instructor')
 
 
 	// Add test courses //
@@ -65,25 +65,7 @@ class BootStrap {
 	def database_thursday_regsheet = lookupOrCreateRegistrationSheet(database_thursday,'2013/03/01','N/A')
 	def webdesign_friday_regsheet = lookupOrCreateRegistrationSheet(webdesign_friday,'2013/04/01', 'N/A')
 
-	// Add test RegisterEnteries//
-	
-	// Programming Monday RegSheet //
-	def programming_monday_regsheet_entry1 = lookupOrCreateRegisterEntry(mike_student,programming_monday_regsheet)
-	def programming_monday_regsheet_entry2 = lookupOrCreateRegisterEntry(sarah_student,programming_monday_regsheet)
 
-	// Programming Tuesday RegSheet //
-	def programming_tuesday_regsheet_entry1 = lookupOrCreateRegisterEntry(mike_student,programming_tuesday_regsheet)
-	def programming_tuesday_regsheet_entry2 = lookupOrCreateRegisterEntry(john_student,programming_tuesday_regsheet)
-
-	// Database Thursday RegSheet //
-	def database_thursday_regsheet_entry1 = lookupOrCreateRegisterEntry(sarah_student,database_thursday_regsheet)
-	def database_thursday_regsheet_entry2 = lookupOrCreateRegisterEntry(john_student,database_thursday_regsheet)
-	def database_thursday_regsheet_entry3 = lookupOrCreateRegisterEntry(mike_student,database_thursday_regsheet)
-
-	// WebDesign Friday RegSheet //
-	def webdesign_friday_regsheet_entry1 = lookupOrCreateRegisterEntry(sarah_student,webdesign_friday_regsheet)
-	def webdesign_friday_regsheet_entry2 = lookupOrCreateRegisterEntry(john_student,webdesign_friday_regsheet)
-	
 
 
 
@@ -94,8 +76,8 @@ class BootStrap {
 
 		// Instructor //
 
-	def lookupOrCreateInstructor (id,name){
-	def result = Instructor.findByInstructorId(id) ?: new Instructor (instructorId: id, instructorName: name).save();
+	def lookupOrCreateInstructor (id,name,password,role){
+	def result = Instructor.findByInstructorId(id) ?: new Instructor (instructorId: id, instructorName: name, password: password, role: role).save();
 	return result
 	}
 
@@ -141,12 +123,7 @@ class BootStrap {
 	return result
 	}
 
-		// Enrollment //
-
-	def lookupOrCreateRegisterEntry (student,reg){
-	def result = RegisterEntry.findAllByStudentAndRegistrationsheet(student,reg) ?: new RegisterEntry (student: student, registrationsheet: reg).save();
-	return result
-	}
+	
 
 
 }

@@ -1,11 +1,18 @@
 package uk.ac.shu.webarch.register
 
+
+
+
+
+
 class Instructor {
 
 
 
-  String instructorName
-  String instructorId
+	String instructorName
+	String instructorId
+	String password	
+	String role = "Instructor"
 
 
 	// Here i implement a "toString()" method to return a more sensible value instead of the id for display purposes // 
@@ -27,8 +34,10 @@ class Instructor {
 
 
   static constraints = {
-    instructorName(nullable:false, blank:false,maxSize:50);
-    instructorId(nullable:false, blank:false,maxSize:20);
+	instructorName(nullable:false, blank:false,maxSize:50);
+	instructorId(nullable:false, blank:false,maxSize:20);
+	password blank:false, size:5..15, matches:/[\S]+/;
+	role(inList:["Instructor", "Admin"])
   }
 
 
