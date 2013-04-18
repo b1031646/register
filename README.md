@@ -1,16 +1,16 @@
 SHU Electronic Register
-========
+=
 <br>
-* Please note: This application is still under development*
+*Please note: This application is still under development
 <br>
 Context
-===========
+=
 <hr>
-Document the construction of a Grails application which delivers a RESTful web interface and demonstrates several aspects of the Web Architectures module,  including the appropriate use of the  Model-View-Controller design pattern and use of GIT as a code repository (including use of branches to hold development stages and exploratory work).<br>
+Document the construction of a Grails application which delivers a RESTful web interface and demonstrates several aspects of the Web Architectures module, including the appropriate use of the  Model-View-Controller design pattern and use of GIT as a code repository (including use of branches to hold development stages and exploratory work).<br>
 The system must also demonstrate the use of access to a MySQL database.<br>
 <br>
 Checking out and running the project
-===========
+=
 <hr>
 Some info here about how to run the project<br>
 <br>
