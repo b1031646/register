@@ -113,9 +113,9 @@ def returnid = (params.returnid)
 
 	if(s.save()) {
 
-	
 
-	 render(view: "show", model: [registrationSheetInstance: s])
+redirect(controller:"Apply", action: "index", id: s.id)
+
 
 	} else {
 flash.message="Please enter a sheet name!" 
