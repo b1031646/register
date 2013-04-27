@@ -5,13 +5,13 @@ class RegistrationSheet {
 
 
   Session session
-  Date sessionDate
+  String sheetName
   String notes
 
 	// Here i implement a "toString()" method to return a more sensible value instead of the id for display purposes // 
 
 	String toString() {
-        	return session 
+        	return "$session / $sheetName "
     }
 
 
@@ -27,8 +27,9 @@ class RegistrationSheet {
 
   static constraints = {
     session(nullable:false, blank:false);
-    sessionDate(nullable:false, blank:false);
+    sheetName(nullable:false, blank:false, notEqual: "Enter Sheet Name");
     notes(nullable:true, blank:true);
+
   }
 
 

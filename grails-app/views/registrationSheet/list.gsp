@@ -26,7 +26,7 @@
 					
 						<th><g:message code="registrationSheet.session.label" default="Session" /></th>
 					
-						<g:sortableColumn property="sessionDate" title="${message(code: 'registrationSheet.sessionDate.label', default: 'Session Date')}" />
+						<g:sortableColumn property="sheetName" title="${message(code: 'registrationSheet.sessionDate.label', default: 'Sheet Name')}" />
 					
 						<g:sortableColumn property="notes" title="${message(code: 'registrationSheet.notes.label', default: 'Notes')}" />
 					
@@ -38,7 +38,7 @@
 					
 						<td><g:link action="show" id="${registrationSheetInstance.id}">${fieldValue(bean: registrationSheetInstance, field: "session")}</g:link></td>
 					
-						<td><g:formatDate format="dd-MM-yyyy" date="${registrationSheetInstance.sessionDate}"  /></td>
+						<td>${registrationSheetInstance.sheetName}</td>
 					
 						<td>${fieldValue(bean: registrationSheetInstance, field: "notes")}</td>
 					

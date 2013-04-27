@@ -34,10 +34,10 @@
      
 <ul class="main_navi">
         <li><g:link controller="home" action="index" class="transition">Home</g:link></li>
-        <li><g:link controller="home" action="index" class="transition">Link1</g:link></li>
+       <!-- <li><g:link controller="home" action="index" class="transition">Link1</g:link></li>
 	<li><g:link controller="home" action="index" class="transition">Link2</g:link></li>
         <li><g:link controller="home" action="index" class="transition">Link3</g:link></li>
-        <li><g:link controller="home" action="index" class="transition">Link4</g:link></li>
+        <li><g:link controller="home" action="index" class="transition">Link4</g:link></li>-->
 </ul>
 
 </g:if>
@@ -46,11 +46,28 @@
 
 </div>
 
-<hr>
+ <hr width="100%"> 
+<p>Welcome Back, ${session.instructor.instructorName}</p><br>
+<br>
+<br>
+<p>Your Sessions:</p>
+<g:each in="${sessionlist}" status="i" var="sessionentry">
 
-HOMEPAGE
+<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
     
-  
+<table style="width:100%">
+
+<tr>
+
+<p><g:link controller="session" action="session_show" id="${sessionentry.id}">${fieldValue(bean: sessionentry, field: "sessionName")}</g:link></p>
+</tr>
+
+</table>
+
+</g:each>
+
+
+
 
 
 <div id="footer">
@@ -59,7 +76,7 @@ HOMEPAGE
     &#169; SHU Registration 2013. All rights reserved.
     
 <g:if test="${session.instructor}">
-
+<!--
     <ul class="footer_navi">
           <li><g:link controller="home" action="index" class="transition">Home</g:link></li>
         <li><g:link controller="home" action="index" class="transition">Link1</g:link></li>
@@ -67,7 +84,7 @@ HOMEPAGE
         <li><g:link controller="home" action="index" class="transition">Link3</g:link></li>
         <li><g:link controller="home" action="index" class="transition">Link4</g:link></li>
     </ul>
-
+-->
 </g:if>
 
 </div>

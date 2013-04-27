@@ -17,7 +17,25 @@ def beforeInterceptor = [action:this.&auth,
     def index() {
 
 
- }
+
+def result = [sessionlist:Session.findAllByInstructor(session.instructor)]
+result.total = 0
+result.sessionlist.each  { sessionentry ->
+
+
+}
+
+  result
+
+
+}
+
+
+
+
+
+
+
 
 
 }

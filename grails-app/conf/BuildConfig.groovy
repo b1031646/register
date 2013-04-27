@@ -60,7 +60,7 @@ grails.project.dependency.resolution = {
 
 	
 
-	compile ":remote-constraints:0.4.3"
+
 
 
     }

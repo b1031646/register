@@ -99,4 +99,23 @@ class SessionController {
             redirect(action: "show", id: id)
         }
     }
+
+
+    def session_show(Long id) {
+        def sessionInstance = Session.get(id)
+        if (!sessionInstance) {
+            flash.message = message(code: 'default.not.found.message', args: [message(code: 'session.label', default: 'Session'), id])
+            redirect(action: "list")
+            return
+        }
+
+        [sessionInstance: sessionInstance]
+    }
+
+
+
+
+
+
+
 }

@@ -99,4 +99,33 @@ class RegistrationSheetController {
             redirect(action: "show", id: id)
         }
     }
+
+
+def newsheet() {
+
+def returnid = (params.returnid)
+
+	if(request.method == 'POST') {
+
+	def s = new RegistrationSheet()
+
+	s.properties['session', 'sheetName', 'notes'] = params
+
+	if(s.save()) {
+
+	
+
+	 render(view: "show", model: [registrationSheetInstance: s])
+
+	} else {
+flash.message="Please enter a sheet name!" 
+redirect(controller:"session", action: "session_show", id: returnid)
+	
+
+	}
+	}
+}
+
+
+
 }

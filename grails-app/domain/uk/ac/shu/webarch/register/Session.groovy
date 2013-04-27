@@ -35,8 +35,8 @@ class Session {
   static mapping = {
     instructor column:'instructor_fk'
     module column:'module_fk'
-
-
+	enrollments sort:"id", order:"asc" 
+	registrationSheets sort:"id", order:"asc" 
 
   }
 }

@@ -10,12 +10,12 @@
 	<g:select id="session" name="session.id" from="${uk.ac.shu.webarch.register.Session.list()}" optionKey="id" required="" value="${registrationSheetInstance?.session?.id}" class="many-to-one"/>
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: registrationSheetInstance, field: 'sessionDate', 'error')} required">
-	<label for="sessionDate">
-		<g:message code="registrationSheet.sessionDate.label" default="Session Date" />
+<div class="fieldcontain ${hasErrors(bean: registrationSheetInstance, field: 'sheetName', 'error')} required">
+	<label for="sheetName">
+		<g:message code="registrationSheet.sheetName.label" default="Sheet Name" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:datePicker name="sessionDate" precision="day"  value="${registrationSheetInstance?.sessionDate}"  />
+	<g:textField name="sheetName" value="${registrationSheetInstance?.sheetName}"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: registrationSheetInstance, field: 'notes', 'error')} ">

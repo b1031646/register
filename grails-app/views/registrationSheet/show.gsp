@@ -32,11 +32,11 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${registrationSheetInstance?.sessionDate}">
+				<g:if test="${registrationSheetInstance?.sheetName}">
 				<li class="fieldcontain">
-					<span id="sessionDate-label" class="property-label"><g:message code="registrationSheet.sessionDate.label" default="Session Date" /></span>
+					<span id="sheetName-label" class="property-label"><g:message code="registrationSheet.sheetName.label" default="Sheet Name" /></span>
 					
-						<span class="property-value" aria-labelledby="sessionDate-label"><g:formatDate date="${registrationSheetInstance?.sessionDate}" type="date" style="LONG" /></span>
+						<span class="property-value" aria-labelledby="sheetName-label">${registrationSheetInstance?.sheetName}</span>
 					
 				</li>
 				</g:if>

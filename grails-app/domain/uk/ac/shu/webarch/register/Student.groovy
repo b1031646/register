@@ -35,7 +35,7 @@ class Student {
 
     static mapping = {
     studentNotes column: 'student_notes', type:'text'
-
+	enrollments sort:"id", order:"asc" 
 
 
   }

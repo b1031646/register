@@ -48,6 +48,7 @@ class BootStrap {
 	// Mike Enrollment //
 	def mike_programming_monday = lookupOrCreateEnrollment(programming_monday,mike_student)
 	def mike_webdesign_friday = lookupOrCreateEnrollment(webdesign_friday,mike_student)
+	def mike_database_thursday = lookupOrCreateEnrollment(database_thursday,mike_student)
 
 	// Sarah Enrollment //
 	def sarah_database_thursday = lookupOrCreateEnrollment(database_thursday,sarah_student)
@@ -56,14 +57,15 @@ class BootStrap {
 
 	// John Enrollment //
 	def john_webdesign_friday = lookupOrCreateEnrollment(webdesign_friday,john_student)
+	def john_database_thursday = lookupOrCreateEnrollment(database_thursday,john_student)
 
 
 	// Add test RegistrationSheets //
 	
-	def programming_monday_regsheet = lookupOrCreateRegistrationSheet(programming_monday,'2013/01/01','N/A')
-	def programming_tuesday_regsheet = lookupOrCreateRegistrationSheet(programming_tuesday,'2013/02/01','N/A')
-	def database_thursday_regsheet = lookupOrCreateRegistrationSheet(database_thursday,'2013/03/01','N/A')
-	def webdesign_friday_regsheet = lookupOrCreateRegistrationSheet(webdesign_friday,'2013/04/01', 'N/A')
+	def programming_monday_regsheet = lookupOrCreateRegistrationSheet(programming_monday,'Monday 1st Feb','N/A')
+	def programming_tuesday_regsheet = lookupOrCreateRegistrationSheet(programming_tuesday,'Tuesday 19th Apr','N/A')
+	def database_thursday_regsheet = lookupOrCreateRegistrationSheet(database_thursday,'Thursday 23rd Mar','N/A')
+	def webdesign_friday_regsheet = lookupOrCreateRegistrationSheet(webdesign_friday,'Friday 13th Jan', 'N/A')
 
 
 
@@ -118,8 +120,8 @@ class BootStrap {
 
 		// RegistrationSheet //
 
-	def lookupOrCreateRegistrationSheet (session,date,notes){
-	def result = RegistrationSheet.findAllBySessionAndSessionDate(session, date) ?: new RegistrationSheet (session: session, sessionDate: date, notes: notes).save();
+	def lookupOrCreateRegistrationSheet (session,sheetname,notes){
+	def result = RegistrationSheet.findAllBySessionAndSheetName(session, sheetname) ?: new RegistrationSheet (session: session, sheetName: sheetname, notes: notes).save();
 	return result
 	}
 
