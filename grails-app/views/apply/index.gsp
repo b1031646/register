@@ -53,7 +53,7 @@
         <g:form action="processAttendance" name="processAttendance" id="${registrationSheetInstance.id}" method="GET">
 
 
-	<g:select id="student" name="student.id" from="${uk.ac.shu.webarch.register.Student.list()}" optionKey="id" required="" value="${registerEntryInstance?.student?.id}" class="many-to-one"/>
+	<g:select id="student" name="student.id" from="${registrationSheetInstance.session.enrollments.student}" optionKey="id" required="" value="${registerEntryInstance?.session?.enrollments?.student?.id}" class="many-to-one"/>
 
 
 	<g:hiddenField name="registrationsheet.id" from="${params?.id}" optionKey="id" required="" value="${params?.id}" class="many-to-one"/>
@@ -65,6 +65,9 @@
 			<div id="errors" role="status">${flash.message}</div>
 			</g:if>
 
+		
+		
+				
 <hr width="33%"> 
 
 <br>
