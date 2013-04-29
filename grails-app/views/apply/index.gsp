@@ -48,9 +48,7 @@
 <br>
 
 <h1>ID: ${params.id} // ${registrationSheetInstance.session.sessionName} // ${registrationSheetInstance.sheetName} </h1>
-
-
-
+<hr>
 
         <g:form action="processAttendance" name="processAttendance" id="${registrationSheetInstance.id}" method="GET">
 
@@ -60,22 +58,23 @@
 
 	<g:hiddenField name="registrationsheet.id" from="${params?.id}" optionKey="id" required="" value="${params?.id}" class="many-to-one"/>
 
-<g:submitButton class="registerButton" name="processAttendance" value="Register"></g:submitButton>
+<g:submitButton class="registerButton" name="processAttendance" value="Register Student"></g:submitButton>
 
  </g:form>
 	<g:if test="${flash.message}">
 			<div id="errors" role="status">${flash.message}</div>
 			</g:if>
 
-
+<hr width="33%"> 
 
 <br>
+<h2>Students Attended:</h2>
+<hr width="17%"> 
 
 <ul>
 <g:each in ="${registrationSheetInstance.registerEntries}" var='ent'>
-
-<li>${ent.student.studentName} ${ent.timestamp} </li>
-
+<br>
+<li><h4>${ent.student.studentName}: <g:formatDate date="${ent.timestamp}" type="date/time" style="SHORT"/></h4> </li>
 
 </g:each>
 </ul>

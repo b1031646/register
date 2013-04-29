@@ -18,10 +18,10 @@
 	<g:select id="registrationsheet" name="registrationsheet.id" from="${uk.ac.shu.webarch.register.RegistrationSheet.list()}" optionKey="id" required="" value="${registerEntryInstance?.registrationsheet?.id}" class="many-to-one"/>
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: registerEntryInstance, field: 'timestamp', 'error')} required">
+<div class="fieldcontain ${hasErrors(bean: registerEntryInstance, field: 'timestamp', 'error')} ">
 	<label for="timestamp">
 		<g:message code="registerEntry.timestamp.label" default="Timestamp" />
-		<span class="required-indicator">*</span>
+		
 	</label>
 	
 </div>
