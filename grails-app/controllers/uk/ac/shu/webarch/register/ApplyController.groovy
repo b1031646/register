@@ -44,4 +44,29 @@ def returnid = (params.id)
 
 }	
 
+
+
+
+    def activeClasses() { 
+
+
+  def crit = RegistrationSheet.createCriteria()
+  def active_sheets = crit.list {
+    isNotEmpty('registerEntries')
+    }
+  
+  def result=[active_sheets:active_sheets]
+
+  return result;
+
+
+
+}
+    
+
+
+
+
+
+
 }

@@ -47,40 +47,20 @@
 </div>
 <br>
 
-<h1>ID: ${params.id} // ${registrationSheetInstance.session.sessionName} // ${registrationSheetInstance.sheetName} </h1>
-<hr>
 
-        <g:form action="processAttendance" name="processAttendance" id="${registrationSheetInstance.id}" method="GET">
-
-
-	<g:select id="student" name="student.id" from="${registrationSheetInstance.session.enrollments.student}" optionKey="id" required="" value="${registerEntryInstance?.session?.enrollments?.student?.id}" class="many-to-one"/>
-
-
-	<g:hiddenField name="registrationsheet.id" from="${params?.id}" optionKey="id" required="" value="${params?.id}" class="many-to-one"/>
-
-<g:submitButton class="registerButton" name="processAttendance" value="Register Student"></g:submitButton>
-
- </g:form>
-	<g:if test="${flash.message}">
-			<div id="errors" role="status">${flash.message}</div>
-			</g:if>
-
-		
-		
-				
-<hr width="33%"> 
 
 <br>
-<h2>Students Attended:</h2>
+<h2>Active Classes:</h2>
 <hr width="17%"> 
 
 <ul>
-<g:each in ="${registrationSheetInstance.registerEntries}" var='ent'>
+<g:each in ="${active_sheets}" var='ent'>
 <br>
-<li><h4>${ent.student.studentName}: <g:formatDate date="${ent.timestamp}" type="date/time" style="SHORT"/></h4> </li>
+<li><h4><b>Session:</b> ${ent.session} // <b>Sheet Name:</b> ${ent.sheetName}</h4> </li>
 
 </g:each>
 </ul>
+
 
 
 
