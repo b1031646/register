@@ -1,5 +1,8 @@
 package uk.ac.shu.webarch.register
 
+import grails.converters.*
+
+
 class ApplyController {
 
     def index(Long id) { 
@@ -49,15 +52,30 @@ def returnid = (params.id)
 
     def activeClasses() { 
 
+ 	 def result=[:]
+
+	   result.active_sheets=[]
+
 
   def crit = RegistrationSheet.createCriteria()
   def active_sheets = crit.list {
     isNotEmpty('registerEntries')
-    }
-  
-  def result=[active_sheets:active_sheets]
 
-  return result;
+    }
+
+
+  active_sheets.each { rs ->
+	result.active_sheets.add([session:rs.session,sheetName:rs.sheetName])
+
+}
+
+
+      withFormat {
+	html result
+	xml { render result as XML }
+	json { render result as JSON }
+
+     }
 
 
 
