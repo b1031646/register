@@ -67,7 +67,18 @@
          </thead>
          <tbody>
 	  <tr>
-		<td><g:link controller="instructor" action="show" id="${sessionInstance?.instructor?.id}">${sessionInstance?.instructor?.encodeAsHTML()}</g:link></td>
+		<td>
+<!-- Checks if the logged in session.instructor matches the instructor who takes a particular module, if instructor is able to view their personal details and change their password.
+	This makes sure that a instructor can only amend their own details -->
+<g:if test="${session.instructor.id == sessionInstance.instructor.id}">
+<g:link controller="instructor" action="show" id="${sessionInstance.instructor.id}">${sessionInstance?.instructor?.encodeAsHTML()}</g:link>
+</g:if>
+
+<!-- If no match is found show the instructor name with no link -->
+<g:if test="${session.instructor.id != sessionInstance.instructor.id}">
+${sessionInstance?.instructor?.encodeAsHTML()}
+</g:if>
+</td>
 		<td><g:link controller="module" action="module_show" id="${sessionInstance?.module?.id}">${sessionInstance?.module?.encodeAsHTML()}</g:link></td>
 		
 	<td><g:each in="${sessionInstance.enrollments}" var="e">
@@ -75,15 +86,36 @@
 			<g:link controller="student" action="student_show" id="${e.student.id}">${e?.student}</g:link><br/></span>
 			</g:each></td>
 
-		<td><g:each in="${sessionInstance.registrationSheets}" var="r">
+		<td>
+<!-- Checks if the logged in session.instructor matches the instructor who takes a particular module, if instructor is able to view registration sheets and register students.
+	This makes sure that a instructor can only sign in to their own sessions -->
+<g:if test="${session.instructor.id == sessionInstance.instructor.id}">
+<g:each in="${sessionInstance.registrationSheets}" var="r">
 			<span class="property-value" aria-labelledby="registrationSheets-label">
 				<g:link controller="apply" action="index" id="${r.id}">${r?.sheetName}</g:link><br/></span>
-					</g:each></td>
+					</g:each>
+</g:if>
+<!-- If no match is found show all registration sheets for that module with no links -->
+<g:if test="${session.instructor.id != sessionInstance.instructor.id}">
+<g:each in="${sessionInstance.registrationSheets}" var="r">
+			<span class="property-value" aria-labelledby="registrationSheets-label">
+				${r?.sheetName}<br/></span>
+					</g:each>
+</g:if>
+
+
+
+
+</td>
 	   </tr>
 	  
 	 </tbody>
 	</table>
 
+<!-- Checks if the logged in session.instructor matches the instructor who takes a particular module, if so the 'add registration sheet' form is shown.
+	This makes sure that a instructor can only add registration sheets to their own sessions -->
+
+<g:if test="${session.instructor.id == sessionInstance.instructor.id}">
 
 <h2>Add new registration sheet for ${sessionInstance.sessionName}</h2>
         <g:form controller="RegistrationSheet" action="newsheet" name="addregsheet">
@@ -103,6 +135,10 @@
 	<g:if test="${flash.message}">
 			<div id="errors" role="status">${flash.message}</div>
 			</g:if>
+
+
+</g:if>
+
 
 <div id="footer">
 <hr>
