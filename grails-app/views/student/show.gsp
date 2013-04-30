@@ -55,7 +55,7 @@
 					<span id="enrollments-label" class="property-label"><g:message code="student.enrollments.label" default="Enrollments" /></span>
 					
 						<g:each in="${studentInstance.enrollments}" var="e">
-						<span class="property-value" aria-labelledby="enrollments-label"><g:link controller="enrollment" action="show" id="${e.id}">${e?.session}</g:link></span>
+						<span class="property-value" aria-labelledby="enrollments-label"><g:link controller="enrollment" action="show" id="${e.id}">${e?.encodeAsHTML()}</g:link></span>
 						</g:each>
 					
 				</li>
@@ -66,7 +66,7 @@
 					<span id="registerEntries-label" class="property-label"><g:message code="student.registerEntries.label" default="Register Entries" /></span>
 					
 						<g:each in="${studentInstance.registerEntries}" var="r">
-						<span class="property-value" aria-labelledby="registerEntries-label"><g:link controller="registerEntry" action="show" id="${r.id}">${r?.registrationsheet}&nbsp;&nbsp;-&nbsp;&nbsp;<g:formatDate format="${r?.timestamp}" type="date" style="LONG" /></g:link></span>
+						<span class="property-value" aria-labelledby="registerEntries-label"><g:link controller="registerEntry" action="show" id="${r.id}">${r?.encodeAsHTML()}</g:link></span>
 						</g:each>
 					
 				</li>

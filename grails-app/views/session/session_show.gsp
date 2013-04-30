@@ -5,7 +5,7 @@
     <% /*  Resources Links for CSS/JS Files */ %>
  
     <r:require module="template"/>
-
+<r:require modules="bootstrap"/>
     <r:layoutResources/>
 
 
@@ -47,64 +47,45 @@
 </div>
 
  <hr width="100%"> 
+
+
 <div id="show-session" class="content scaffold-show" role="main">
 			<h1>${sessionInstance.sessionName}</h1>
 			<ol class="property-list session">
 			
 		
 			
-				<g:if test="${sessionInstance?.instructor}">
-				<li class="fieldcontain">
-					<span id="instructor-label" class="property-label"><g:message code="session.instructor.label" default="Instructor" /></span>
-					
-						<span class="property-value" aria-labelledby="instructor-label"><g:link controller="instructor" action="show" id="${sessionInstance?.instructor?.id}">${sessionInstance?.instructor?.encodeAsHTML()}</g:link></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${sessionInstance?.module}">
-				<li class="fieldcontain">
-					<span id="module-label" class="property-label"><g:message code="session.module.label" default="Module" /></span>
-					
-						<span class="property-value" aria-labelledby="module-label"><g:link controller="module" action="show" id="${sessionInstance?.module?.id}">${sessionInstance?.module?.encodeAsHTML()}</g:link></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${sessionInstance?.enrollments}">
-				<li class="fieldcontain">
-					<span id="enrollments-label" class="property-label"><g:message code="session.enrollments.label" default="Enrollments" /></span>
-					
-						<g:each in="${sessionInstance.enrollments}" var="e">
-						<span class="property-value" aria-labelledby="enrollments-label">
-<g:link controller="student" action="show" id="${e.student.id}">${e?.student}</g:link></span>
-						</g:each>
-					
-				</li>
-				</g:if>
 
 
+	<table class = 'table table-hover table-condensed'>
+	    <tr>
+		<td><b>Instructor</b></td>
+		<td><b>Module</b></td>
+		<td><b>Enrollments</b></td>
+		<td><b>Registration Sheets</b></td>
+	   </tr>
+         </thead>
+         <tbody>
+	  <tr>
+		<td><g:link controller="instructor" action="show" id="${sessionInstance?.instructor?.id}">${sessionInstance?.instructor?.encodeAsHTML()}</g:link></td>
+		<td><g:link controller="module" action="show" id="${sessionInstance?.module?.id}">${sessionInstance?.module?.encodeAsHTML()}</g:link></td>
+		
+	<td><g:each in="${sessionInstance.enrollments}" var="e">
+		<span class="property-value" aria-labelledby="enrollments-label">
+			<g:link controller="student" action="show" id="${e.student.id}">${e?.student}</g:link><br/></span>
+			</g:each></td>
+
+		<td><g:each in="${sessionInstance.registrationSheets}" var="r">
+			<span class="property-value" aria-labelledby="registrationSheets-label">
+				<g:link controller="apply" action="index" id="${r.id}">${r?.sheetName}</g:link><br/></span>
+					</g:each></td>
+	   </tr>
+	  
+	 </tbody>
+	</table>
 
 
-			
-				<g:if test="${sessionInstance?.registrationSheets}">
-				<li class="fieldcontain">
-					<span id="registrationSheets-label" class="property-label"><g:message code="session.registrationSheets.label" default="Registration Sheets" /></span>
-					
-						<g:each in="${sessionInstance.registrationSheets}" var="r">
-						<span class="property-value" aria-labelledby="registrationSheets-label"><g:link controller="registrationSheet" action="show" id="${r.id}">${r?.sheetName}</g:link></span>
-						</g:each>
-					
-				</li>
-				</g:if>
-			
-			</ol>
-			<g:form>
-			
-			</g:form>
-		</div>
-
-
+<h2>Add new registration sheet for ${sessionInstance.sessionName}</h2>
         <g:form controller="RegistrationSheet" action="newsheet" name="addregsheet">
 
 	
@@ -112,7 +93,7 @@
 
 <g:textField name="sheetName" value="Enter Sheet Name"/><g:renderErrors bean="${addregsheet}" as="list" field="sheetName"/> 
 
-<g:hiddenField  name="notes"  required="" value="" />
+<g:hiddenField  name="notes"  required="" value="N/A" />
 
 <g:hiddenField  name="returnid"  required="" value="${sessionInstance.id}" />
 

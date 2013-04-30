@@ -99,4 +99,17 @@ class CourseController {
             redirect(action: "show", id: id)
         }
     }
+
+    def course_show(Long id) {
+        def courseInstance = Course.get(id)
+        if (!courseInstance) {
+            flash.message = message(code: 'default.not.found.message', args: [message(code: 'course.label', default: 'Course'), id])
+            redirect(action: "list")
+            return
+        }
+
+        [courseInstance: courseInstance]
+    }
+
+
 }
