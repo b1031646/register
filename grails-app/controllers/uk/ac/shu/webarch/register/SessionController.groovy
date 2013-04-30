@@ -101,7 +101,7 @@ class SessionController {
     }
 
 
-    def session_show(Long id) {
+    def session_detail(Long id) {
         def sessionInstance = Session.get(id)
         if (!sessionInstance) {
             flash.message = message(code: 'default.not.found.message', args: [message(code: 'session.label', default: 'Session'), id])

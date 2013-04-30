@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>	
-<title>SHU Registration | Module::${moduleInstance?.moduleName}</title>
+<title>SHU Registration | ${moduleInstance?.moduleName}</title>
 
     <% /*  Resources Links for CSS/JS Files */ %>
  
@@ -65,7 +65,7 @@
 		<td>${moduleInstance?.moduleDescription}</td>
 		<td><g:link controller="course" action="course_show" id="${moduleInstance.course.id}">${moduleInstance?.course}</g:link></td>
 		<td><g:each in="${moduleInstance.sessions}" var="s">
-						<span class="property-value" aria-labelledby="sessions-label"><g:link controller="session" action="session_show" id="${s.id}">${s?.encodeAsHTML()}</g:link><br/></span>
+						<span class="property-value" aria-labelledby="sessions-label"><g:link controller="session" action="session_detail" id="${s.id}">${s?.encodeAsHTML()}</g:link><br/></span>
 						</g:each></td>
 	   </tr>
 	  

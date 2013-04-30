@@ -15,7 +15,7 @@
 		<g:message code="registrationSheet.sheetName.label" default="Sheet Name" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:textField name="sheetName" value="${registrationSheetInstance?.sheetName}"/>
+	<g:textField name="sheetName" required="" value="${registrationSheetInstance?.sheetName}"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: registrationSheetInstance, field: 'notes', 'error')} ">

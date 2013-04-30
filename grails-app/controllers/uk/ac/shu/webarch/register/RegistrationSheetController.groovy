@@ -119,13 +119,12 @@ redirect(controller:"Apply", action: "index", id: s.id)
 
 	} else {
 flash.message="Please enter a sheet name!" 
-redirect(controller:"session", action: "session_show", id: returnid)
+redirect(controller:"session", action: "session_detail", id: returnid)
 	
 
 	}
 	}
 }
-
 
 
 }

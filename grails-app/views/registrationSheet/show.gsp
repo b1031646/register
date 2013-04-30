@@ -36,7 +36,7 @@
 				<li class="fieldcontain">
 					<span id="sheetName-label" class="property-label"><g:message code="registrationSheet.sheetName.label" default="Sheet Name" /></span>
 					
-						<span class="property-value" aria-labelledby="sheetName-label">${registrationSheetInstance?.sheetName}</span>
+						<span class="property-value" aria-labelledby="sheetName-label"><g:fieldValue bean="${registrationSheetInstance}" field="sheetName"/></span>
 					
 				</li>
 				</g:if>

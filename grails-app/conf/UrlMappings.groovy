@@ -13,11 +13,11 @@ class UrlMappings {
 
 		// Mapping for Apply Controller //
 
-		"/registrationSheet/" (controller:'apply', action:"index")
+		"/view_registrationSheet/" (controller:'apply', action:"index")
 
-		// Mapping for Session Controller //
+		// Mapping for session_detail //
 
-		"/session/" (controller:'session', action:"session_show")
+		"/session_detail/" (controller:'session', action:"session_detail")
 
 		// Mapping for Course Controller //
 

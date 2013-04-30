@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>	
-<title>SHU Registration | Home</title>
+<title>SHU Registration | ${sessionInstance.sessionName}</title>
 
     <% /*  Resources Links for CSS/JS Files */ %>
  
@@ -68,11 +68,11 @@
          <tbody>
 	  <tr>
 		<td><g:link controller="instructor" action="show" id="${sessionInstance?.instructor?.id}">${sessionInstance?.instructor?.encodeAsHTML()}</g:link></td>
-		<td><g:link controller="module" action="show" id="${sessionInstance?.module?.id}">${sessionInstance?.module?.encodeAsHTML()}</g:link></td>
+		<td><g:link controller="module" action="module_show" id="${sessionInstance?.module?.id}">${sessionInstance?.module?.encodeAsHTML()}</g:link></td>
 		
 	<td><g:each in="${sessionInstance.enrollments}" var="e">
 		<span class="property-value" aria-labelledby="enrollments-label">
-			<g:link controller="student" action="show" id="${e.student.id}">${e?.student}</g:link><br/></span>
+			<g:link controller="student" action="student_show" id="${e.student.id}">${e?.student}</g:link><br/></span>
 			</g:each></td>
 
 		<td><g:each in="${sessionInstance.registrationSheets}" var="r">
