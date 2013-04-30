@@ -5,7 +5,7 @@
     <% /*  Resources Links for CSS/JS Files */ %>
  
     <r:require module="template"/>
-
+<r:require modules="bootstrap"/>
     <r:layoutResources/>
 
 
@@ -51,15 +51,24 @@
 
 <br>
 <h2>Active Classes:</h2>
-<hr width="17%"> 
 
-<ul>
-<g:each in ="${active_sheets}" var='ent'>
-<br>
-<li><h4><b>Session:</b> ${ent.session} // <b>Sheet Name:</b> ${ent.sheetName}</h4> </li>
+	<table class = 'table table-striped'>
+	  <thead>
+	    <tr>
+		<td><b>Session</b></td>
+		<td><b>Sheet Name</b></td>
+	   </tr>
+         </thead>
+         <tbody>
+	 <g:each in ="${active_sheets}" var='ent'>
+	  <tr>
+		<td>${ent.session}</td>
+		<td>${ent.sheetName}</td>
+	   </tr>
+	  </g:each>
+	 </tbody>
+	</table>
 
-</g:each>
-</ul>
 
 
 
