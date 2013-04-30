@@ -19,6 +19,15 @@ class UrlMappings {
 
 		"/session/" (controller:'session', action:"session_show")
 
+		// Mapping for Course Controller //
+
+		"/course/" (controller:'course', action:"course_show")
+
+		// Mapping for Course Controller //
+
+		"/module/" (controller:'module', action:"module_show")
+
+
 		"500"(view:'/error')
 	}
 }

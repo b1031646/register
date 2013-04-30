@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>	
-<title>SHU Registration | Home</title>
+<title>SHU Registration | Module::${moduleInstance?.moduleName}</title>
 
     <% /*  Resources Links for CSS/JS Files */ %>
  
@@ -45,25 +45,27 @@
 <div onmousedown="return false"><g:img alt="RAMM:Designs" class="logo" dir="images" file="img/logo.png" /></div>
 
 
-			<h1>${courseInstance?.courseName}</h1>
+			<h1>${moduleInstance?.moduleName}</h1>
 
 
 	<table class = 'table table-striped table-hover'>
 	    <tr>
-		<td><b>Course ID</b></td>
-		<td><b>Course Name</b></td>
-		<td><b>Course Description</b></td>
-		<td><b>Modules</b></td>
+		<td><b>Module ID</b></td>
+		<td><b>Module Name</b></td>
+		<td><b>Module Description</b></td>
+		<td><b>Course</b></td>
+		<td><b>Sessions</b></td>
 	   </tr>
          </thead>
          <tbody>
 	
 	  <tr>
-		<td>${courseInstance?.courseId}</td>
-		<td>${courseInstance?.courseName}</td>
-		<td>${courseInstance?.courseDescription}</td>
-		<td><g:each in="${courseInstance.modules}" var="m">
-						<span class="property-value" aria-labelledby="modules-label"><g:link controller="module" action="module_show" id="${m.id}">${m?.encodeAsHTML()}</g:link><br/></span>
+		<td>${moduleInstance?.moduleId}</td>
+		<td>${moduleInstance?.moduleName}</td>
+		<td>${moduleInstance?.moduleDescription}</td>
+		<td><g:link controller="course" action="course_show" id="${moduleInstance.course.id}">${moduleInstance?.course}</g:link></td>
+		<td><g:each in="${moduleInstance.sessions}" var="s">
+						<span class="property-value" aria-labelledby="sessions-label"><g:link controller="session" action="session_show" id="${s.id}">${s?.encodeAsHTML()}</g:link><br/></span>
 						</g:each></td>
 	   </tr>
 	  

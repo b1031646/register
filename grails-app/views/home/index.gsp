@@ -62,7 +62,7 @@
 	 <g:each in ="${sessionlist}" var='ent'>
 	  <tr>
 		<td><g:link controller="session" action="session_show" id="${ent.id}">${ent.sessionName}</g:link></td>
-		<td><g:link controller="module" action="show" id="${ent.module.id}">${ent.module}</g:link></td>
+		<td><g:link controller="module" action="module_show" id="${ent.module.id}">${ent.module}</g:link></td>
 		<td><g:link controller="course" action="course_show" id="${ent.module.course.id}">${ent.module.course}</g:link></td>
 	   </tr>
 	  </g:each>

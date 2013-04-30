@@ -99,4 +99,18 @@ class ModuleController {
             redirect(action: "show", id: id)
         }
     }
+
+
+    def module_show(Long id) {
+        def moduleInstance = Module.get(id)
+        if (!moduleInstance) {
+            flash.message = message(code: 'default.not.found.message', args: [message(code: 'module.label', default: 'Module'), id])
+            redirect(action: "list")
+            return
+        }
+
+        [moduleInstance: moduleInstance]
+    }
+
+
 }
