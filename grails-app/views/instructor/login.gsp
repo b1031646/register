@@ -35,11 +35,9 @@
 <g:if test="${session.instructor}">
      
 <ul class="main_navi">
-          <li><g:link controller="home" action="index" class="transition">Home</g:link></li>
-        <li><g:link controller="home" action="index" class="transition">Link1</g:link></li>
-	<li><g:link controller="home" action="index" class="transition">Link2</g:link></li>
-        <li><g:link controller="home" action="index" class="transition">Link3</g:link></li>
-        <li><g:link controller="home" action="index" class="transition">Link4</g:link></li>
+               <li><g:link controller="home" action="index" class="transition">Home</g:link></li>
+        <li><g:link controller="session" action="active" class="transition">Active Sessions</g:link></li>
+	
       
 </ul>
 
@@ -77,11 +75,9 @@
 <g:if test="${session.instructor}">
 
     <ul class="footer_navi">
-        <li><g:link controller="home" action="index" class="transition">Home</g:link></li>
-        <li><g:link controller="home" action="index" class="transition">Link1</g:link></li>
-	<li><g:link controller="home" action="index" class="transition">Link2</g:link></li>
-        <li><g:link controller="home" action="index" class="transition">Link3</g:link></li>
-        <li><g:link controller="home" action="index" class="transition">Link4</g:link></li>
+         <li><g:link controller="home" action="index" class="transition">Home</g:link></li>
+        <li><g:link controller="session" action="active" class="transition">Active Sessions</g:link></li>
+	
         
     </ul>
 

@@ -42,11 +42,7 @@
 <div onmousedown="return false"><g:img alt="SHU:Registration" class="logo" dir="images" file="img/logo.png" /></div>
 
 </div>
-<br>
 
-
-
-<br>
 <h1>Active Sessions</h1>
 
 	<table class = 'table table-striped table-hover'>

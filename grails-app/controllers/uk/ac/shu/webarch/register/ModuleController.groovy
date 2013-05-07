@@ -4,6 +4,22 @@ import org.springframework.dao.DataIntegrityViolationException
 
 class ModuleController {
 
+
+
+def beforeInterceptor = [action:this.&auth, 
+                           except:["module_show"]]
+
+  def auth() {
+    if( !(session?.instructor?.role == "Admin") ){
+      flash.message = "You must be an administrator to perform that task."
+      redirect(controller:"instructor", action:"login")
+      return false
+    }
+  }
+
+
+
+
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
     def index() {

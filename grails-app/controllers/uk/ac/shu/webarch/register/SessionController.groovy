@@ -5,6 +5,22 @@ import grails.converters.*
 
 class SessionController {
 
+
+
+def beforeInterceptor = [action:this.&auth, 
+                           except:["active", "session_detail"]]
+
+  def auth() {
+    if( !(session?.instructor?.role == "Admin") ){
+      flash.message = "You must be an administrator to perform that task."
+      redirect(controller:"instructor", action:"login")
+      return false
+    }
+  }
+
+
+
+
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
     def index() {

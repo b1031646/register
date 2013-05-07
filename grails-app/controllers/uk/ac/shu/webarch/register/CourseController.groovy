@@ -4,6 +4,21 @@ import org.springframework.dao.DataIntegrityViolationException
 
 class CourseController {
 
+
+	// Before Interceptor that restricts access to Admin users only //
+
+def beforeInterceptor = [action:this.&auth, 
+                           except:["course_show"]]
+
+  def auth() {
+    if( !(session?.instructor?.role == "Admin") ){
+      flash.message = "You must be an administrator to perform that task."
+      redirect(controller:"instructor", action:"login")
+      return false
+    }
+  }
+
+
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
     def index() {
