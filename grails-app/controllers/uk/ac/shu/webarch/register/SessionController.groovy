@@ -1,6 +1,7 @@
 package uk.ac.shu.webarch.register
 
 import org.springframework.dao.DataIntegrityViolationException
+import grails.converters.*
 
 class SessionController {
 
@@ -113,6 +114,39 @@ class SessionController {
     }
 
 
+	// Here is the code to list all active sessions and their registration sheets //
+
+
+    def active() { 
+
+ 	 def result=[:]
+
+	   result.active_sheets=[]
+
+
+  def crit = RegistrationSheet.createCriteria()
+  def active_sheets = crit.list {
+    isNotEmpty('registerEntries')
+
+    }
+
+
+  active_sheets.each { rs ->
+	result.active_sheets.add([session:rs.session,sheetName:rs.sheetName])
+
+}
+
+
+      withFormat {
+	html result
+	xml { render result as XML }
+	json { render result as JSON }
+
+     }
+
+
+
+}
 
 
 

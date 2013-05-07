@@ -114,7 +114,7 @@ def returnid = (params.returnid)
 	if(s.save()) {
 
 
-redirect(controller:"Apply", action: "index", id: s.id)
+redirect(controller:"registrationSheet", action: "register", id: s.id)
 
 
 	} else {
@@ -125,6 +125,50 @@ redirect(controller:"session", action: "session_detail", id: returnid)
 	}
 	}
 }
+
+
+   def register(Long id) { 
+
+ 
+        def registrationSheetInstance = RegistrationSheet.get(id)
+
+        [registrationSheetInstance: registrationSheetInstance]
+
+    }
+
+
+
+	
+
+
+	def processAttendance() {
+
+def returnid = (params.id)
+
+	if(request.method == 'GET') {
+
+	def r = new RegisterEntry()
+
+	r.properties['student.id', 'registrationsheet.id'] = params
+
+	if(r.save()) {
+
+
+	redirect(action: "register", id: returnid)
+
+
+	} else {
+
+	flash.message="Please enter a sheet name!" 
+
+	redirect(action: "register", id: returnid)
+	
+
+	}
+	}
+
+}	
+
 
 
 }

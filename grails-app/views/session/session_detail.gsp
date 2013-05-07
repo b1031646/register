@@ -92,7 +92,7 @@ ${sessionInstance?.instructor?.encodeAsHTML()}
 <g:if test="${session.instructor.id == sessionInstance.instructor.id}">
 <g:each in="${sessionInstance.registrationSheets}" var="r">
 			<span class="property-value" aria-labelledby="registrationSheets-label">
-				<g:link controller="apply" action="index" id="${r.id}">${r?.sheetName}</g:link><br/></span>
+				<g:link controller="registrationSheet" action="register" id="${r.id}">${r?.sheetName}</g:link><br/></span>
 					</g:each>
 </g:if>
 <!-- If no match is found show all registration sheets for that module with no links -->
