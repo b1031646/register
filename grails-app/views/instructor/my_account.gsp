@@ -33,41 +33,30 @@
 
      
 <ul class="main_navi">
+	
         <li><g:link controller="home" action="index" class="transition">Home</g:link></li>
         <li><g:link controller="session" action="active" class="transition">Active Sessions</g:link></li>
+	
 </ul>
-
-
 
 <div onmousedown="return false"><g:img alt="SHU:Registration" class="logo" dir="images" file="img/logo.png" /></div>
 
 </div>
-<br>
 
 
-
-<br>
-<h1>Active Sessions</h1>
-
-	<table class = 'table table-striped table-hover'>
-	  <thead>
-	    <tr>
-		<td><b>Session</b></td>
-		<td><b>Sheet Name</b></td>
-	   </tr>
-         </thead>
-         <tbody>
-	 <g:each in ="${active_sheets}" var='ent'>
-	  <tr>
-		<td><g:link controller="session" action="session_detail" id="${ent.session.id}">${ent.session}</g:link></td>
-		<td>${ent.sheetName}</td>
-	   </tr>
-	  </g:each>
-	 </tbody>
-	</table>
+<p>Welcome Back, ${session.instructor.instructorName}</p><br>
+<p id="category_nav">
+<FONT COLOR="#1a3b42">Categories: 
+<g:link controller="instructor" action="edit_details" id="${session.instructor.id}">Edit Your Personal Details</g:link> 
+</font>
+</p>
 
 
+<br/>
 
+			<g:if test="${flash.message}">
+			<div class="message" role="status">${flash.message}</div>
+			</g:if>
 
 
 
@@ -79,7 +68,7 @@
     
 
     <ul class="footer_navi">
-         <li><g:link controller="home" action="index" class="transition">Home</g:link></li>
+          <li><g:link controller="home" action="index" class="transition">Home</g:link></li>
         <li><g:link controller="session" action="active" class="transition">Active Sessions</g:link></li>
     </ul>
 

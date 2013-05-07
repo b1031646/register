@@ -170,12 +170,55 @@ redirect(controller:'instructor', action:'login')
 
 }
 
+
 }
 
 
+	def my_account(){}
 
 
 
+
+    def edit_details(Long id) {
+        def instructorInstance = Instructor.get(id)
+        if (!instructorInstance) {
+            flash.message = message(code: 'default.not.found.message', args: [message(code: 'instructor.label', default: 'Instructor'), id])
+            redirect(controller: "instructor", action: "my_account")
+            return
+        }
+
+        [instructorInstance: instructorInstance]
+    }
+
+
+    def instructor_update(Long id, Long version) {
+        def instructorInstance = Instructor.get(id)
+        if (!instructorInstance) {
+            flash.message = message(code: 'default.not.found.message', args: [message(code: 'instructor.label', default: 'Instructor'), id])
+            redirect(action: "my_account")
+            return
+        }
+
+        if (version != null) {
+            if (instructorInstance.version > version) {
+                instructorInstance.errors.rejectValue("version", "default.optimistic.locking.failure",
+                          [message(code: 'instructor.label', default: 'Instructor')] as Object[],
+                          "Another user has updated this Instructor while you were editing")
+                render(view: "edit_details", model: [instructorInstance: instructorInstance])
+                return
+            }
+        }
+
+        instructorInstance.properties = params
+
+        if (!instructorInstance.save(flush: true)) {
+            render(view: "edit_details", model: [instructorInstance: instructorInstance])
+            return
+        }
+
+        flash.message="Your details have been updated!" 
+        redirect(action: "edit_details", id: instructorInstance.id)
+    }
 
 
 

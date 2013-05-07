@@ -42,7 +42,7 @@
 </div>
 <br>
 
-<h1>ID: ${params.id} // ${registrationSheetInstance.session.sessionName} // ${registrationSheetInstance.sheetName} </h1>
+<h1>${params.id} / ${registrationSheetInstance.session.sessionName} / ${registrationSheetInstance.sheetName} </h1>
 <hr>
 
         <g:form action="processAttendance" name="processAttendance" id="${registrationSheetInstance.id}" method="GET">
@@ -60,23 +60,27 @@
 			<div id="errors" role="status">${flash.message}</div>
 			</g:if>
 
-		
-		
-				
-<hr width="33%"> 
+
 
 <br>
-<h2>Students Attended:</h2>
-<hr width="17%"> 
 
-<ul>
-<g:each in ="${registrationSheetInstance.registerEntries}" var='ent'>
-<br>
-<li><h4>${ent.student.studentName}: <g:formatDate date="${ent.timestamp}" type="date/time" style="SHORT"/></h4> </li>
 
-</g:each>
-</ul>
 
+<table class = 'table table-striped table-hover'>
+	    <tr>
+		<td><b>Student</b></td>
+		<td><b>Timestamp</b></td>
+	   </tr>
+         </thead>
+         <tbody>
+	 <g:each in ="${registrationSheetInstance.registerEntries}" var='ent'>
+	  <tr>
+		<td><g:link controller="student" action="student_show" id="${ent.student.id}">${ent.student.studentName}</g:link></td>
+		<td><g:formatDate date="${ent.timestamp}" type="date/time" style="SHORT"/></td>
+	   </tr>
+	  </g:each>
+	 </tbody>
+	</table>
 
 
 

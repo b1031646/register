@@ -67,7 +67,7 @@
 <!-- Checks if the logged in session.instructor matches the instructor who takes a particular module, if instructor is able to view their personal details and change their password.
 	This makes sure that a instructor can only amend their own details -->
 <g:if test="${session.instructor.id == sessionInstance.instructor.id}">
-<g:link controller="instructor" action="show" id="${sessionInstance.instructor.id}">${sessionInstance?.instructor?.encodeAsHTML()}</g:link>
+<g:link controller="instructor" action="edit_details" id="${sessionInstance.instructor.id}">${sessionInstance?.instructor?.encodeAsHTML()}</g:link>
 </g:if>
 
 <!-- If no match is found show the instructor name with no link -->

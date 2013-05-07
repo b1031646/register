@@ -67,8 +67,6 @@
        <br/>
        <g:submitButton class="loginButton" name="Login" value="Login"></g:submitButton>
     </g:form>
-    
-  
 
 
 <div id="footer">
