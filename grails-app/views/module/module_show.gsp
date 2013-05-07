@@ -30,19 +30,16 @@
 
 <!-- Header -->
 
-<g:if test="${session.instructor}">
+
      
 <ul class="main_navi">
-        <li><g:link controller="home" action="index" class="transition">Home</g:link></li>
-       <!-- <li><g:link controller="home" action="index" class="transition">Link1</g:link></li>
-	<li><g:link controller="home" action="index" class="transition">Link2</g:link></li>
-        <li><g:link controller="home" action="index" class="transition">Link3</g:link></li>
-        <li><g:link controller="home" action="index" class="transition">Link4</g:link></li>-->
+       <li><g:link controller="home" action="index" class="transition">Home</g:link></li>
+        <li><g:link controller="session" action="active" class="transition">Active Sessions</g:link></li>
 </ul>
 
-</g:if>
 
-<div onmousedown="return false"><g:img alt="RAMM:Designs" class="logo" dir="images" file="img/logo.png" /></div>
+
+<div onmousedown="return false"><g:img alt="SHU:Registration" class="logo" dir="images" file="img/logo.png" /></div>
 
 
 			<h1>${moduleInstance?.moduleName}</h1>
@@ -79,17 +76,12 @@
 <br>
     &#169; SHU Registration 2013. All rights reserved.
     
-<g:if test="${session.instructor}">
-<!--
+
     <ul class="footer_navi">
-          <li><g:link controller="home" action="index" class="transition">Home</g:link></li>
-        <li><g:link controller="home" action="index" class="transition">Link1</g:link></li>
-	<li><g:link controller="home" action="index" class="transition">Link2</g:link></li>
-        <li><g:link controller="home" action="index" class="transition">Link3</g:link></li>
-        <li><g:link controller="home" action="index" class="transition">Link4</g:link></li>
+   <li><g:link controller="home" action="index" class="transition">Home</g:link></li>
+        <li><g:link controller="session" action="active" class="transition">Active Sessions</g:link></li>
     </ul>
--->
-</g:if>
+
 
 </div>
     

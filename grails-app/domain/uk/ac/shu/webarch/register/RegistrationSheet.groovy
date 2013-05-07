@@ -36,5 +36,6 @@ class RegistrationSheet {
   static mapping = {
     notes column: 'session_notes', type:'text'
      session column:'session_fk'
+	registerEntries sort:"id", order:"asc"
   }
 }

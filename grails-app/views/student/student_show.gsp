@@ -30,19 +30,15 @@
 
 <!-- Header -->
 
-<g:if test="${session.instructor}">
+
      
 <ul class="main_navi">
         <li><g:link controller="home" action="index" class="transition">Home</g:link></li>
-       <!-- <li><g:link controller="home" action="index" class="transition">Link1</g:link></li>
-	<li><g:link controller="home" action="index" class="transition">Link2</g:link></li>
-        <li><g:link controller="home" action="index" class="transition">Link3</g:link></li>
-        <li><g:link controller="home" action="index" class="transition">Link4</g:link></li>-->
+        <li><g:link controller="session" action="active" class="transition">Active Sessions</g:link></li>
 </ul>
 
-</g:if>
 
-<div onmousedown="return false"><g:img alt="RAMM:Designs" class="logo" dir="images" file="img/logo.png" /></div>
+<div onmousedown="return false"><g:img alt="SHU:Registration" class="logo" dir="images" file="img/logo.png" /></div>
 
 
 			<h1>${studentInstance?.studentName}</h1>
@@ -64,10 +60,10 @@
 		<td>${studentInstance?.studentName}</td>
 		<td>${studentInstance?.studentNotes}</td>
 		<td><g:each in="${studentInstance.enrollments}" var="e">
-						<span class="property-value" aria-labelledby="enrollments-label"><g:link controller="enrollment" action="show" id="${e.id}">${e?.session.encodeAsHTML()}</g:link><br/></span>
+						<span class="property-value" aria-labelledby="enrollments-label"><g:link controller="session" action="session_detail" id="${e.session.id}">${e?.session.encodeAsHTML()}</g:link><br/></span>
 						</g:each></td>
 		<td>	<g:each in="${studentInstance.registerEntries}" var="r">
-						<span class="property-value" aria-labelledby="registerEntries-label"><g:link controller="registerEntry" action="show" id="${r.registrationsheet.id}">${r?.registrationsheet.encodeAsHTML()}</g:link><br/></span>
+						<span class="property-value" aria-labelledby="registerEntries-label"><g:link controller="registrationSheet" action="register" id="${r.registrationsheet.id}">${r?.registrationsheet.encodeAsHTML()}</g:link><br/></span>
 						</g:each></td>
 	   </tr>
 	  
@@ -81,17 +77,12 @@
 <br>
     &#169; SHU Registration 2013. All rights reserved.
     
-<g:if test="${session.instructor}">
-<!--
+
     <ul class="footer_navi">
-          <li><g:link controller="home" action="index" class="transition">Home</g:link></li>
-        <li><g:link controller="home" action="index" class="transition">Link1</g:link></li>
-	<li><g:link controller="home" action="index" class="transition">Link2</g:link></li>
-        <li><g:link controller="home" action="index" class="transition">Link3</g:link></li>
-        <li><g:link controller="home" action="index" class="transition">Link4</g:link></li>
+        <li><g:link controller="home" action="index" class="transition">Home</g:link></li>
+        <li><g:link controller="session" action="active" class="transition">Active Sessions</g:link></li>
     </ul>
--->
-</g:if>
+
 
 </div>
     

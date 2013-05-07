@@ -33,6 +33,11 @@ class UrlMappings {
 		"/activeSessions/" (controller:'session', action:"active")
 
 
+		// Mapping for Student Show //
+
+		"/student/$id?/show" (controller:'student', action:"student_show")
+
+
 		// Mapping for signing a registrationSheet //
 
 		"/regSheet/$id?/sign" (controller:'registrationSheet', action:"register")

@@ -101,6 +101,9 @@ class RegistrationSheetController {
     }
 
 
+
+	// Code to create a new registration sheet for a particular session //
+
 def newsheet() {
 
 def returnid = (params.returnid)
@@ -127,6 +130,9 @@ redirect(controller:"session", action: "session_detail", id: returnid)
 }
 
 
+
+	// Register page where students can be signed into a class, accepts id of new regSheet and displays details at top of page //
+
    def register(Long id) { 
 
  
@@ -139,7 +145,7 @@ redirect(controller:"session", action: "session_detail", id: returnid)
 
 
 	
-
+	// Code to sign a student onto a registrationSheet //
 
 	def processAttendance() {
 
@@ -159,7 +165,7 @@ def returnid = (params.id)
 
 	} else {
 
-	flash.message="Please enter a sheet name!" 
+	flash.message="Error!" 
 
 	redirect(action: "register", id: returnid)
 	
