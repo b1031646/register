@@ -54,10 +54,10 @@
 <!-- Top Content -->
    <g:form controller="instructor" action="login" name="loginForm">
    <p class="info">
-        Please login with your username and password. <br />
+        Please login with your Instructor Id and password. <br />
       </p>
 <br>
-       <div><p class="info">Username *</p></div>
+       <div><p class="info">Instructor Id *</p></div>
        <div id ="errors"><g:textField name="instructorId"
                     value="${fieldValue(bean:loginCmd, field:'instructorId')}"> </g:textField><g:renderErrors bean="${loginCmd}" as="list" field="instructorId"/> </div>
        <div><p class="info">Password *</p></div>

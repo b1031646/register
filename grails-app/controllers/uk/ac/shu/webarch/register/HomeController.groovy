@@ -3,7 +3,7 @@ package uk.ac.shu.webarch.register
 class HomeController {
 
 def beforeInterceptor = [action:this.&auth, 
-                           except:[]]
+                           except:["index"]]
 
   def auth() {
     if( !(session?.instructor) ){

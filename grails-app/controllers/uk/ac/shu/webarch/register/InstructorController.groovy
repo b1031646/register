@@ -6,7 +6,7 @@ class InstructorController {
 
 
 def beforeInterceptor = [action:this.&auth, 
-                           except:["my_account", "login"]]
+                           except:["my_account", "login","logout","authenticate","instructor_update","edit_details"]]
 
   def auth() {
     if( !(session?.instructor?.role == "Admin") ){

@@ -46,7 +46,7 @@
 
 <p>Welcome Back, ${session.instructor.instructorName}</p><br>
 
-<h2>Your Sessions:</h2>
+<h1>Your Sessions</h1>
 
 	<table class = 'table table-striped table-hover'>
 	    <tr>

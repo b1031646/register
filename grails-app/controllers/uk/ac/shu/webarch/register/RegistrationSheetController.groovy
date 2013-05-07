@@ -6,7 +6,7 @@ class RegistrationSheetController {
 
 
 def beforeInterceptor = [action:this.&auth, 
-                           except:["register"]]
+                           except:["register", "newsheet","processAttendance"]]
 
   def auth() {
     if( !(session?.instructor?.role == "Admin") ){
