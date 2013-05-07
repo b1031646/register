@@ -222,7 +222,7 @@ redirect(controller:'instructor', action:'login')
 
 
 
-
+def admin_area(){}
 
 
 

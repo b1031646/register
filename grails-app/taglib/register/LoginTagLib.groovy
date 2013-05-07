@@ -10,7 +10,7 @@ class LoginTagLib {
 
 		  if (session?.instructor.role == "Admin"){
 	out<< """   /  ${link(action:"my_account", controller:"instructor"){"My Account"}}    """
-	out << """   /  ${link(action:"showcart", controller:"cart"){"Admin Area"}}   """  
+	out << """   /  ${link(action:"admin_area", controller:"instructor"){"Admin Area"}}   """  
 
     } else if (session?.instructor.role == "Instructor") { 
       out << """   /  ${link(action:"my_account", controller:"instructor") {"My Account"}}"""

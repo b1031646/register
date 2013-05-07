@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>	
-<title>SHU Registration | Home</title>
+<title>SHU Registration | ${registrationSheetInstance.session.sessionName} | ${registrationSheetInstance.sheetName}</title>
 
     <% /*  Resources Links for CSS/JS Files */ %>
  
