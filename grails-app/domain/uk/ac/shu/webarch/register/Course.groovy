@@ -13,12 +13,17 @@ class Course {
         return courseName
     }
 
+	// A course has a set of modules associated with it //
+
   Set modules
 
 
+ // A course has many modules of type Module //
 
   static hasMany = [modules: Module]
   
+// Mapped by the course attribute //
+
   static mappedBy = [modules: "course"]
 
 

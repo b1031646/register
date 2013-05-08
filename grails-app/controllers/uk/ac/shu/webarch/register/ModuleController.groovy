@@ -4,7 +4,7 @@ import org.springframework.dao.DataIntegrityViolationException
 
 class ModuleController {
 
-
+// Before Interceptor that restricts access to Admin users only //
 
 def beforeInterceptor = [action:this.&auth, 
                            except:["module_show"]]
@@ -17,7 +17,7 @@ def beforeInterceptor = [action:this.&auth,
     }
   }
 
-
+	// Scaffold code //
 
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
@@ -116,6 +116,8 @@ def beforeInterceptor = [action:this.&auth,
         }
     }
 
+
+	// Code to retrieve module details for instructor view //
 
     def module_show(Long id) {
         def moduleInstance = Module.get(id)

@@ -5,7 +5,7 @@ import grails.converters.*
 
 class SessionController {
 
-
+// Before Interceptor that restricts access to Admin users only //
 
 def beforeInterceptor = [action:this.&auth, 
                            except:["active", "session_detail"]]
@@ -18,7 +18,7 @@ def beforeInterceptor = [action:this.&auth,
     }
   }
 
-
+	// Scaffold code //
 
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
@@ -130,7 +130,7 @@ def beforeInterceptor = [action:this.&auth,
     }
 
 
-	// Here is the code to list all active sessions and their registration sheets //
+	// Here is the code to list all active sessions and their registration sheets and also diaplay XML and JSON via content negotiation //
 
 
     def active() { 

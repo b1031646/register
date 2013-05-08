@@ -4,7 +4,7 @@
 	<head>
 		<meta name="layout" content="main">
 		<g:set var="entityName" value="${message(code: 'user.label', default: 'User')}" />
-		<title>SHU Admin Panel: Home</title>
+		<title>SHU Admin Panel: Admin Area</title>
 	</head>
 	<body>
 		<div class="nav" role="navigation">

@@ -14,13 +14,17 @@ class RegistrationSheet {
         	return "$session / $sheetName "
     }
 
+// A registrationSheet has a set of registerEntries //
 
   Set registerEntries
 
 
+// A registrationSheet has many registerEntries of type RegisterEntry //
 
   static hasMany = [registerEntries: RegisterEntry]
   
+// Mapped by the registrationsheet attribute //
+
   static mappedBy = [registerEntries: "registrationsheet"]
 
 
@@ -36,6 +40,6 @@ class RegistrationSheet {
   static mapping = {
     notes column: 'session_notes', type:'text'
      session column:'session_fk'
-	registerEntries sort:"id", order:"asc"
+	registerEntries sort:"id", order:"asc" // This sorts the registerEntries set in ascending order so it doesn't shuffle on page refresh in the view //
   }
 }

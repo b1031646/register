@@ -15,13 +15,18 @@ class Student {
         return studentName
     }
 
+// A student has a set of registerEntries and a set of enrollments //
 
   Set enrollments
   Set registerEntries
 
 
+// A student has many enrollments of type Enrollment and many registerEntries of type RegisterEntry //
 
   static hasMany = [enrollments: Enrollment, registerEntries: RegisterEntry]
+
+// Enrollments and registerEntries are mapped by the student attribute //
+
   static mappedBy = [enrollments: "student", registerEntries: "student"]
 
 
@@ -35,8 +40,8 @@ class Student {
 
     static mapping = {
     studentNotes column: 'student_notes', type:'text'
-	enrollments sort:"id", order:"asc" 
-	registerEntries sort:"id", order:"asc"
+	enrollments sort:"id", order:"asc"  // This sorts the enrollments set in ascending order so it doesn't shuffle on page refresh in the view //
+	registerEntries sort:"id", order:"asc"// This sorts the registerEntries set in ascending order so it doesn't shuffle on page refresh in the view //
 
 
   }

@@ -51,7 +51,9 @@
 
 <div id="large_error" role="status">${flash.message}</div>
 <br>
-<!-- Top Content -->
+
+<!-- LOGIN FORM -->
+
    <g:form controller="instructor" action="login" name="loginForm">
    <p class="info">
         Please login with your Instructor Id and password. <br />

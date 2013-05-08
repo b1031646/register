@@ -2,6 +2,8 @@ package uk.ac.shu.webarch.register
 
 class HomeController {
 
+// Before Interceptor that restricts access to Admin users only //
+
 def beforeInterceptor = [action:this.&auth, 
                            except:["index"]]
 
@@ -14,9 +16,10 @@ def beforeInterceptor = [action:this.&auth,
   }
 
 
+	// Code to retrieve the modules assigned to the instructor who is logged in and display them on the homepage //
+
+
     def index() {
-
-
 
 def result = [sessionlist:Session.findAllByInstructor(session.instructor)]
 result.total = 0

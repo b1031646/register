@@ -40,6 +40,7 @@
 
 			<h1>${courseInstance?.courseName}</h1>
 
+<!-- Twitter bootstrap table to display details of a course -->
 
 	<table class = 'table table-striped table-hover'>
 	    <tr>

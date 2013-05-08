@@ -51,7 +51,7 @@
 			
 		
 			
-
+	<!-- Twitter bootstrap table that displays the details of a session -->
 
 	<table class = 'table table-hover table-condensed'>
 	    <tr>

@@ -45,6 +45,8 @@
 			<h1>${moduleInstance?.moduleName}</h1>
 
 
+	<!-- Twitter bootstrap table to show details of a module -->
+
 	<table class = 'table table-striped table-hover'>
 	    <tr>
 		<td><b>Module ID</b></td>

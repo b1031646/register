@@ -18,6 +18,7 @@ def beforeInterceptor = [action:this.&auth,
     }
   }
 
+	// Scaffold code //
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 

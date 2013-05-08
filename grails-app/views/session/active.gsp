@@ -45,6 +45,8 @@
 
 <h1>Active Sessions</h1>
 
+	<!-- Twitter bootstrap table that displaysthe details of active sessions -->
+
 	<table class = 'table table-striped table-hover'>
 	  <thead>
 	    <tr>

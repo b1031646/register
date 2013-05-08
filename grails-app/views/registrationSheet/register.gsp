@@ -45,6 +45,9 @@
 <h1>${params.id} / ${registrationSheetInstance.session.sessionName} / ${registrationSheetInstance.sheetName} </h1>
 <hr>
 
+
+ <!-- Form that allows an attendance to be processed  -->
+
         <g:form action="processAttendance" name="processAttendance" id="${registrationSheetInstance.id}" method="GET">
 
 
@@ -64,7 +67,7 @@
 
 <br>
 
-
+<!-- Twitter bootstrap table that displays details of signed in students -->
 
 <table class = 'table table-striped table-hover'>
 	    <tr>

@@ -14,12 +14,16 @@ class Session {
         return sessionName
     }
 
+// A session has a set of registrationSheets and a set of enrollments //
+
   Set registrationSheets
   Set enrollments
 
-
+// A session has many registrationSheets of type RegistrationSheet and many enrollments of type Enrollment //
 
   static hasMany = [registrationSheets: RegistrationSheet, enrollments: Enrollment]
+
+// Both are mappedBy the session attribute //
 
   static mappedBy = [registrationSheets: "session", enrollments: "session"]
 
@@ -35,8 +39,8 @@ class Session {
   static mapping = {
     instructor column:'instructor_fk'
     module column:'module_fk'
-	enrollments sort:"id", order:"asc" 
-	registrationSheets sort:"id", order:"asc" 
+	enrollments sort:"id", order:"asc" // This sorts the enrollments set in ascending order so it doesn't shuffle on page refresh in the view //
+	registrationSheets sort:"id", order:"asc" // This sorts the registrationSheets set in ascending order so it doesn't shuffle on page refresh in the view //
 
   }
 }

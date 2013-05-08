@@ -47,6 +47,10 @@
 <FONT COLOR="#1a3b42">     Categories: <g:link controller="instructor" action="my_account"  class="transition" >My Account</g:link> 
 </font>
 </p>
+
+<!-- Code adapted from the edit scaffold to allow users to change their personal details -->
+<!-- Modified the _form to _form_instructor_edit to disable certain fields e.g. Instructor Name and Instructor ID -->
+
 <div id="edit-instructor" class="content scaffold-edit" role="main">
 			<h1>${session.instructor.instructorName}</h1>
 			<g:if test="${flash.message}">

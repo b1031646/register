@@ -43,6 +43,7 @@
 
 			<h1>${studentInstance?.studentName}</h1>
 
+	<!-- Twitter bootstrap table that shows a students details -->
 
 	<table class = 'table table-striped table-hover'>
 	    <tr>

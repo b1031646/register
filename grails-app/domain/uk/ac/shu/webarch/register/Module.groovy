@@ -12,10 +12,15 @@ class Module {
 	String toString() {
         return moduleName
     }
+// A module has a set of sesisons associated with it //
 
   Set sessions
 
+// A module has many sessions of type Session //
+
   static hasMany = [sessions: Session]
+
+// Mapped by the module attribute //
 
   static mappedBy = [sessions: "module"]
 

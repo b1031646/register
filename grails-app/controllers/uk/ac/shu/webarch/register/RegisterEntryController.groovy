@@ -4,6 +4,7 @@ import org.springframework.dao.DataIntegrityViolationException
 
 class RegisterEntryController {
 
+// Before Interceptor that restricts access to Admin users only //
 
 def beforeInterceptor = [action:this.&auth, 
                            except:[]]
@@ -17,7 +18,7 @@ def beforeInterceptor = [action:this.&auth,
   }
 
 
-
+	// Scaffold code //
 
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]

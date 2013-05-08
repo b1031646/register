@@ -4,7 +4,7 @@ import java.sql.Timestamp
 
 class RegisterEntry {
 
-  
+  // A registerEntry consists of a student and a registration sheet and is timestamped when created //
 
   Student student
   RegistrationSheet registrationsheet

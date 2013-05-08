@@ -3,17 +3,11 @@ package uk.ac.shu.webarch.register
 class Enrollment {
 
 
+//Enrollment consists of a student and a session //
 
-  Session session
+  Session session 
   Student student
 
-
-	// Here i implement a "toString()" method to return a more sensible value instead of the id for display purposes //  
-
-
-	
-       
-    
 
   static constraints = {
     session(nullable:false, blank:false);

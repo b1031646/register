@@ -48,6 +48,8 @@
 
 <h1>Your Sessions</h1>
 
+	<!-- Twitter bootstrap table displaying the sessions a logged in instructor is teaching -->	
+
 	<table class = 'table table-striped table-hover'>
 	    <tr>
 		<td><b>Session</b></td>
