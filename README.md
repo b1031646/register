@@ -1,5 +1,6 @@
 SHU Electronic Register
 =
+![Instructor Home](/images/screenshots/home.png "Instructor Home")
 <br>
 *Please note: This application is still under development
 <br>
