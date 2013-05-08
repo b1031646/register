@@ -48,7 +48,8 @@ The project is a groovy/grails project and needs an installed Java7 JDK and inst
 
 The grails DataSource.groovy file is pre-configured with the above details. Once the MySQL database has been set-up then the app should run without any problems.
 
-c
+<b>Build / Run</b>
+=
 Once the MySQL database has been configured navigate into the application directory and use the command:
 
 <i>grails run-app</i>
